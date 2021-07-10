@@ -4,6 +4,6 @@
 
 ### Instructions to run locally : 
 1. Install NodeJs if not installed.
-2. Clone repository or dowload zip file and unzip it and run npm install command.
-3. Run npm start command to start application.
+2. Clone repository or dowload zip file and unzip it and run "npm install" command.
+3. Run "npm start" command to start application.
 4. Lastly, start using it.
