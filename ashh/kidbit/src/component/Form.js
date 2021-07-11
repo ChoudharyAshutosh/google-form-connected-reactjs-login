@@ -50,6 +50,7 @@ export default function Form({phone, setPhone, selectedTime, closeForm, selectTi
         })
         .catch((e)=>{console.log(e)})
         closeForm();
+        alert('Data sended');
     }
     const updateListLook=()=>{
         document.getElementById('hear-location').style.color="black";
