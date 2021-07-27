@@ -1,6 +1,5 @@
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
-import axios from 'axios'
 import formurlencoded from 'form-urlencoded';
 import './Form.css'
 export default function Form({phone, setPhone, selectedTime, closeForm, selectTime}){
@@ -38,14 +37,18 @@ export default function Form({phone, setPhone, selectedTime, closeForm, selectTi
             let locaiton_other=document.getElementById('other').value;
             data['entry.210369612.other_option_response']=locaiton_other;
         }
-        axios.post('https://cors-anywhere.herokuapp.com/https://docs.google.com/forms/d/e/'+
-            '1FAIpQLScWUyeUYn_LuegxlH5SkFfGwXnZ4fW8u2cbFV_Kr4FRS3tTmw/'+
-            'formResponse',formurlencoded(data).toString(),{
-                headers: { 'content-type': 'application/x-www-form-urlencoded',
-                'Access-Control-Allow-Origin':'*'
+
+        fetch('https://docs.google.com/forms/d/e/'+
+        '1FAIpQLScWUyeUYn_LuegxlH5SkFfGwXnZ4fW8u2cbFV_Kr4FRS3tTmw/'+
+        'formResponse',{
+            method:'post',
+            mode:'no-cors',
+            headers:{
+                'Access-Control-Allow-Origin':'*',
+                'content-type': 'application/x-www-form-urlencoded',
             },
-            })
-        .then((response)=>{
+            body:formurlencoded(data).toString()
+        }).then((response)=>{
             console.log(response.status);
         })
         .catch((e)=>{console.log(e)})
@@ -74,7 +77,7 @@ export default function Form({phone, setPhone, selectedTime, closeForm, selectTi
             <input id="address" type="text" className="form-input" placeholder="Enter your Address here"/>
             <div className="form-label"><span className="label">Phone Number</span></div>
             <PhoneInput defaultCountry="IN" className="form-input" placeholder="Enter phone number" value={phone} onChange={setPhone}/>
-            <div className="form-label">Select Demo Time</div>
+            <div className="form-label"><span className="label">Select Demo Time</span></div>
             <div className="time-selection">
                 <div id="time-slot-1" className="form-input time-selection-option" onClick={selectTime.bind(this,1)}>1-2</div>
                 <div id="time-slot-2" className="form-input time-selection-option" onClick={selectTime.bind(this,2)}>3-4</div>
