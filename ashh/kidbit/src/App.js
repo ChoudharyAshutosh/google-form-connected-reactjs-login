@@ -1,13 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import './App.css';
 import FormModal from './component/FormModal'
-import axios from 'axios';
 function App() {
-  useEffect(()=>{
-    axios.get("https://cors-anywhere.herokuapp.com/corsdemo")
-    .then((response)=>{})
-    .catch((error)=>{})
-  },[])
+  
   const [phone,setPhone]=useState('')
   const [selectedTime,setSelectedTime]=useState(-1)
   const openForm=(e)=>{
