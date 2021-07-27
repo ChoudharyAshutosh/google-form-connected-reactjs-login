@@ -1,6 +1,6 @@
 # google-form-connected-reactjs-login
 
-## Link to site : https://60e9b5c46f32a855e88c071c--focused-liskov-22c4fb.netlify.app
+## Link to site : https://60fff37eea0595e2a002bd85--gifted-pare-3dcea2.netlify.app/
 
 ### Instructions to run locally : 
 1. Install NodeJs if not installed.
